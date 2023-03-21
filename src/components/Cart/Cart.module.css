@@ -1,0 +1,145 @@
+.cart {
+    position: absolute;
+    box-shadow: 0 1px 20px var(--color-silver);
+    background-color: white;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    z-index: 100;
+    width: max-content;
+    animation: fade 0.2s ease-in-out;
+}
+
+.titleWrapper {
+    border-bottom: 1px solid var(--color-silver);
+    margin: 0 1px;
+}
+
+.title {
+    display: inline-block;
+    text-transform: capitalize;
+    padding: 10px 0 25px 30px;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.content {
+    padding: 25px 20px;
+}
+
+.contentEmptyInfo {
+    display: inline-block;
+    padding: 85px 110px;
+}
+
+.productInfoList {
+    flex: 1;
+    overflow: hidden;
+}
+
+.productInfoList>li {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.productList,
+.productInfoList {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.productList {
+    margin-bottom: 30px;
+    font-size: 0.75rem;
+}
+
+.productList>li {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.productList>li+li {
+    margin-top: 5px;
+}
+
+.checkoutBtn {
+    display: block;
+    cursor: pointer;
+    text-decoration: none;
+    text-transform: capitalize;
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: white;
+    background-color: var(--color-orange);
+    border-radius: 10px;
+    border: none;
+    padding: 15px 0;
+}
+
+.checkoutBtn:active {
+    background-color: var(--color-lightorange);
+}
+
+.productImage {
+    width: 50px;
+    height: auto;
+    border-radius: 5px;
+}
+
+.deleteIcon {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    width: 14px;
+    height: auto;
+}
+
+.emptyCart {
+    width: fit-content;
+    padding: 80px 100px;
+    font-size: 0.75rem;
+}
+
+
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .cart {
+        left: 50%;
+        transform: translateX(-50%);
+        box-shadow: none;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        width: 90%;
+    }
+
+    .emptyCart {
+        padding-left: 0;
+        padding-right: 0;
+        text-align: center;
+        width: 100%;
+    }
+
+    .productInfoList {
+        overflow: hidden;
+    }
+
+    .productInfoList>li {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: calc(100%);
+    }
+}

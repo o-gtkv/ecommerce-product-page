@@ -1,0 +1,153 @@
+.productGallery {
+    --border-radius: 10px;
+    --thumbnail-border-width: 2px;
+    --image-width: 450px;
+    --slideButtonRadius: 40px;
+    width: fit-content;
+}
+
+.imgWrapper {
+    position: relative;
+}
+
+.img {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    border-radius: var(--border-radius);
+    transition: opacity 1s ease-in-out;
+}
+
+.img.selected {
+    position: static;
+    width: var(--image-width);
+    height: auto;
+    opacity: 1;
+}
+
+.slideBtn {
+    cursor: pointer;
+    display: none;
+    position: absolute;
+    width: var(--slideButtonRadius);
+    height: var(--slideButtonRadius);
+    border: none;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.slideBtn:hover .slideBtnIcon {
+    stroke: var(--color-orange);
+}
+
+.slideBtn>svg {
+    vertical-align: middle;
+}
+
+.prevSlideBtn {
+    top: calc(50% - var(--slideButtonRadius));
+    left: 10px;
+}
+
+.nextSlideBtn {
+    top: calc(50% - var(--slideButtonRadius));
+    right: 10px;
+}
+
+.thumbnails {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: var(--image-width);
+}
+
+.thumbnail {
+    cursor: pointer;
+    border-radius: calc((var(--border-radius) - var(--thumbnail-border-width)));
+    width: 90px;
+    vertical-align: bottom;
+}
+
+.thumbnail:hover {
+    filter: opacity(30%);
+}
+
+.thumbnailWrapper {
+    margin-top: 20px;
+    border-radius: var(--border-radius);
+    border: var(--thumbnail-border-width) solid transparent;
+}
+
+.thumbnailWrapper.selected {
+    border: var(--thumbnail-border-width) solid #e78337;
+}
+
+.thumbnail.selected {
+    filter: opacity(50%);
+}
+
+.lightbox {
+    position: fixed;
+    display: flex;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    overflow-y: scroll;
+}
+
+.lightBoxCloseBtnWrapper {
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 25px;
+}
+
+.lightBoxCloseBtn {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+}
+
+.lightBoxCloseBtnIcon {
+    fill: white;
+}
+
+.lightBoxCloseBtn:hover .lightBoxCloseBtnIcon {
+    fill: var(--color-orange);
+}
+
+@media screen and (max-width: 768px) {
+    .img {
+        border-radius: 0;
+    }
+
+    .thumbnails {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .slideBtn {
+        display: inline;
+    }
+
+    .img {
+        cursor: initial;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .img.selected {
+        width: 100%;
+    }
+}
