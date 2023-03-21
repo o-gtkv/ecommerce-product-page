@@ -57,17 +57,7 @@
         height: 100%;
         background-color: white;
         padding: 25px 120px 0 20px;
-        animation: apear 0.3s ease-in-out;
-    }
-
-    @keyframes apear {
-        from {
-            transform: translateX(-100%);
-        }
-
-        to {
-            transform: translateX(0);
-        }
+        animation: slide 0.3s ease-in-out;
     }
 
     .menu {
@@ -79,5 +69,19 @@
     .closeIcon {
         display: inline;
         cursor: pointer;
+    }
+
+    .menuUnderline {
+        display: none;
+    }
+
+    @keyframes slide {
+        from {
+            transform: translateX(-100%);
+        }
+
+        to {
+            transform: translateX(0);
+        }
     }
 }
