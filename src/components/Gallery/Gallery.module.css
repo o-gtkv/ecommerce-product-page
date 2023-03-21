@@ -71,7 +71,7 @@
 
 .thumbnail {
     cursor: pointer;
-    border-radius: calc((var(--border-radius) - var(--thumbnail-border-width)));
+    border-radius: calc(var(--border-radius) - var(--thumbnail-border-width));
     width: 90px;
     vertical-align: bottom;
 }
