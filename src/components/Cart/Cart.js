@@ -39,30 +39,26 @@ function Cart(props) {
 
     return (
         <div ref={cartRef} className={style.cart} onClick={handleCartClick}>
-            <div className={style.titleWrapper}>
-                <span className={style.title}>cart</span>
-            </div>
+            <div className={style.title}>cart</div>
             {
                 cartContent.length > 0 ?
                     <div className={style.content}>
                         <ul className={style.productList}>
                             {
-                                cartContent.map(product => {
-                                    return (
-                                        <li key={product.id}>
-                                            <img className={style.productImage} src={product.image} alt="product" />
-                                            <ul className={style.productInfoList}>
-                                                <li>{product.name}</li>
-                                                <li>
-                                                    {product.price.toFixed(2)} × {product.count} <strong>${(product.price * product.count).toFixed(2)}</strong>
-                                                </li>
-                                            </ul>
-                                            <button className={style.deleteIcon} data-productid={product.id} onClick={handleDeleteProductClick}>
-                                                <img src={iconDelete} alt="delete" />
-                                            </button>
-                                        </li>
-                                    )
-                                })
+                                cartContent.map(product => (
+                                    <li key={product.id}>
+                                        <img className={style.productImage} src={product.image} alt="product" />
+                                        <ul className={style.productInfoList}>
+                                            <li>{product.name}</li>
+                                            <li>
+                                                {product.price.toFixed(2)} × {product.count} <strong>${(product.price * product.count).toFixed(2)}</strong>
+                                            </li>
+                                        </ul>
+                                        <button className={style.deleteIcon} data-productid={product.id} onClick={handleDeleteProductClick}>
+                                            <img src={iconDelete} alt="delete" />
+                                        </button>
+                                    </li>
+                                ))
                             }
                         </ul>
                         <a href="/" className={style.checkoutBtn}>checkout</a>

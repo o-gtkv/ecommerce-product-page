@@ -7,29 +7,26 @@
     display: flex;
     align-items: center;
     border-bottom: 1px solid var(--color-silver);
-    padding-top: 30px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-bottom: 33px;
+    padding: 0 10px;
 }
 
-.userBar {
-    display: flex;
-    gap: 50px;
-    align-items: center;
-    margin-left: auto;
-}
-
-.avatarImage {
+.avatarBtn {
     cursor: pointer;
-    width: 40px;
-    height: auto;
+    padding: 0;
+    background-color: transparent;
     border-radius: 50%;
     border: 2px solid transparent;
+    margin-left: 50px;
 }
 
-.avatarImage:hover {
+.avatarBtn:hover {
     border-color: var(--color-orange);
+}
+
+.avatarImg {
+    width: 40px;
+    height: auto;
+    vertical-align: middle;
 }
 
 .cartProductCount {
@@ -45,11 +42,15 @@
 
 .cartIconWrapper {
     position: relative;
+    margin-left: auto;
 }
 
-.menuIcon {
+.menuBtn {
     display: none;
     margin-right: 20px;
+    background-color: transparent;
+    border: 0;
+    padding: 0;
 }
 
 .cartIcon {
@@ -63,24 +64,20 @@
 }
 
 @media screen and (max-width: 768px) {
-    .userBar {
-        gap: 16px;
-        align-items: flex-end;
+    .avatarBtn {
+        margin-left: 16px;
     }
 
-    .avatarImage {
+    .avatarImg {
         width: 25px;
-        border: none
     }
 
-    .menuIcon {
+    .menuBtn {
         display: inline;
         cursor: pointer;
     }
 
     .header {
-        align-items: flex-end;
-        padding-left: 20px;
-        padding-right: 20px;
+        padding: 20px;
     }
 }

@@ -2,15 +2,51 @@
     display: flex;
     gap: 30px;
     list-style-type: none;
+    margin: 0 0 0 60px;
     padding: 0;
-    margin: 0 60px 0;
 }
 
-.menu>li {
-    cursor: pointer;
-    line-height: 1;
+.item {
+    position: relative;
     font-size: 0.875rem;
     text-transform: capitalize;
+    height: 100%;
+    padding: 50px 0;
+}
+
+.item>a {
+    cursor: pointer;
+}
+
+@media (hover: hover) {
+    @supports selector(.item:has(>a:hover)) {
+        .item::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%);
+            display: block;
+            width: 0;
+            height: 2px;
+            background-color: var(--color-lightorange);
+            transition: width 0.3s ease-out;
+        }
+
+        .item:has(>a:hover)::after {
+            width: 100%;
+        }
+    }
+
+    @supports not selector(.item:has(>a:hover)) {
+        .item {
+            border-bottom: 2px solid transparent;
+        }
+
+        .item:hover {
+            border-bottom-color: var(--color-lightorange);
+        }
+    }
 }
 
 .menu>li>a {
@@ -18,20 +54,16 @@
     color: var(--color-text);
 }
 
-.menuUnderline {
-    display: block;
-    position: absolute;
-    height: 2px;
-    background-color: var(--color-lightorange);
-    transition: all 0.2s ease-in-out
-}
-
-.menu>li:hover {
-    border-color: orange;
+.closeBtn {
+    display: none;
+    cursor: pointer;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
 }
 
 .closeIcon {
-    display: none;
+    display: block;
 }
 
 .open {
@@ -56,7 +88,7 @@
         top: 0;
         height: 100%;
         background-color: white;
-        padding: 25px 120px 0 20px;
+        padding: 35px 120px 0 20px;
         animation: slide 0.3s ease-in-out;
     }
 
@@ -66,13 +98,12 @@
         font-weight: 700;
     }
 
-    .closeIcon {
-        display: inline;
-        cursor: pointer;
+    .menu>li {
+        padding: 0;
     }
 
-    .menuUnderline {
-        display: none;
+    .closeBtn {
+        display: inline;
     }
 
     @keyframes slide {
