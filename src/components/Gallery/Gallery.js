@@ -18,11 +18,11 @@ function Gallery(props) {
     const prevBtnRef = useRef(null)
     const nextBtnRef = useRef(null)
     const [currentThumbnailIndex, setCurrentThumbnailIndex] = useState(props.currentThumbnailIndex || 0)
-    const [lightboxIsVisible, setLightBoxIsVisible] = useState(false)
+    const [isLightboxOpen, setIsLightBoxOpen] = useState(false)
 
     useEventHandler(window, 'resize', () => {
-        if (lightboxIsVisible && window.matchMedia('(max-width: 768px)').matches)
-            setLightBoxIsVisible(false)
+        if (isLightboxOpen && window.matchMedia('(max-width: 768px)').matches)
+            setIsLightBoxOpen(false)
     })
 
     useEffect(() => {
@@ -48,7 +48,7 @@ function Gallery(props) {
         // allow lightbox to run only when the gallery is not lightbox...
         // ...itself and the browser's viewport width is greater than 768px
         if (!props.lightbox && window.matchMedia('(min-width: 769px)').matches)
-            setLightBoxIsVisible(true)
+            setIsLightBoxOpen(true)
     }
 
     function handleThumbnailClick(e) {
@@ -142,13 +142,13 @@ function Gallery(props) {
             </div>
             {
                 // show lightbox
-                lightboxIsVisible ?
+                isLightboxOpen ?
                     <div className={style.lightbox}>
                         <Gallery
                             lightbox
                             images={props.images}
                             currentThumbnailIndex={currentThumbnailIndex}
-                            onCloseBtnClick={() => setLightBoxIsVisible(false)}
+                            onCloseBtnClick={() => setIsLightBoxOpen(false)}
                         />
                     </div>
                     :
